@@ -42,6 +42,13 @@ Route::screen('profile', UserProfileScreen::class)
         ->parent('platform.index')
         ->push(__('Profile'), route('platform.profile')));
 
+// Platform > Profile
+Route::screen('users/create', UserEditScreen::class)
+    ->name('platform.patients.index')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.patients.index')
+        ->push(__('Create'), route('platform.patients.index')));
+
 // Platform > System > Users > User
 Route::screen('users/{user}/edit', UserEditScreen::class)
     ->name('platform.systems.users.edit')
@@ -90,6 +97,18 @@ Route::screen('example', ExampleScreen::class)
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.index')
         ->push('Example Screen'));
+
+Route::screen('patients', \App\Orchid\Screens\Patient\PatientListScreen::class)
+    ->name('platform.patients.list')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.index')
+        ->push('Patients list'));
+
+Route::screen('patients/create', \App\Orchid\Screens\Patient\PatientEditScreen::class)
+    ->name('platform.patients.create')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.patients.list')
+        ->push('Create new patient'));
 
 Route::screen('/examples/form/fields', ExampleFieldsScreen::class)->name('platform.example.fields');
 Route::screen('/examples/form/advanced', ExampleFieldsAdvancedScreen::class)->name('platform.example.advanced');
