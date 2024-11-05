@@ -85,3 +85,10 @@ Want to build for production? Simply run `docker-compose run --rm npm run build`
 The current version of Laravel (9 as of today) uses MailHog as the default application for testing email sending and general SMTP work during local development. Using the provided Docker Hub image, getting an instance set up and ready is simple and straight-forward. The service is included in the `docker-compose.yml` file, and spins up alongside the webserver and database services.
 
 To see the dashboard and view any emails coming through the system, visit [localhost:8025](http://localhost:8025) after running `docker-compose up -d site`.
+
+## This is where your Laravel app goes
+
+To get started, **delete this file** and then do one of the following:
+
+- Clone your project or copy all of the files directly into this `src` directory.
+- Spin up the Docker network by following the instructions on the main [README.md](../README.md), and install a brand new Laravel project by running `docker-compose run --rm composer create-project laravel/laravel .` in your terminal.
