@@ -225,6 +225,13 @@
                     </li>
 
                     <li class="nav-item">
+                        <a href="{{ route('admin.cats.index') }}" class="nav-link {{ active('admin.cats.*','active') }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Кошки</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Выход</p>

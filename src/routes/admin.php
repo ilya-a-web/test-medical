@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminController;
 use \App\Http\Controllers\Admin\PatientController;
 use App\Http\Controllers\Admin\AnalysesController;
 use App\Http\Controllers\Admin\DiseasesController;
+use App\Http\Controllers\Admin\CatsController;
 
 Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
@@ -26,6 +27,13 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::post('/diseases/store', [DiseasesController::class, 'store'])->name('admin.diseases.store');
     Route::get('/diseases/{id}/edit', [DiseasesController::class, 'edit'])->name('admin.diseases.edit');
     Route::post('/diseases/{id}/update', [DiseasesController::class, 'update'])->name('admin.diseases.update');
+
+    Route::get('/cats', [CatsController::class, 'index'])->name('admin.cats.index');
+    Route::get('/cats/create', [CatsController::class, 'create'])->name('admin.cats.create');
+    Route::post('/cats/store', [CatsController::class, 'store'])->name('admin.cats.store');
+    Route::get('/cats/{cat}/edit', [CatsController::class, 'edit'])->name('admin.cats.edit');
+    Route::put('/cats/{cat}/update', [CatsController::class, 'update'])->name('admin.cats.update');
+    Route::post('/cats/{cat}/destroy', [CatsController::class, 'update'])->name('admin.cats.destroy');
 
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 });
