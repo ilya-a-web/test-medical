@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\GeoController;
+use App\Http\Controllers\Api\PriceController;
 use App\Http\Controllers\Api\UsersController;
 use App\Http\Controllers\Api\PatientController;
 use App\Http\Controllers\Api\WorkSpaceController;
@@ -28,3 +29,5 @@ Route::group(['middleware' => ['api']], function ($router) {
     Route::post('/workspace/select2',[WorkSpaceController::class, 'select2']);
     Route::post('/geo/select2',[GeoController::class, 'select2']);
 });
+
+Route::get('/prices', [PriceController::class, 'index']);
